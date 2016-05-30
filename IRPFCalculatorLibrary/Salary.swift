@@ -1,6 +1,6 @@
 //
 //  Salary.swift
-//  IRPF Calculator
+//  IRPFCalculatorLibrary
 //
 //  Created by Álvaro Frutos on 18/12/14.
 //  Copyright (c) 2014 Álvaro Frutos. All rights reserved.

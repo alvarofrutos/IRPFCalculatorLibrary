@@ -1,6 +1,6 @@
 //
 //  PersonalData.swift
-//  IRPF Calculator
+//  IRPFCalculatorLibrary
 //
 //  Created by Álvaro Frutos on 11/12/14.
 //  Copyright (c) 2014 Álvaro Frutos. All rights reserved.
@@ -74,41 +74,7 @@ enum Disability : String {
 }
 
 
-// MARK: - Constants
-/*
-let kPersonalData = "personalData"
 
-let kEarnings              = "earnings"
-let kBirthDate             = "birthDate"
-let kPayments              = "payments"
-
-let kFamilySituation       = "familySituation"
-let kProfessionalSituation = "professionalSituation"
-let kProfessionalRelation  = "professionalRelation"
-let kContributionBasis     = "contributionBasis"
-let kContractType          = "contractType"
-let kDisability            = "disability"
-
-let kNeedsHelp             = "needsHelp"
-let kMobility              = "mobility"
-let kCeutaMelilla          = "ceutaMelilla"
-let kExtendedActivity      = "extendedActivity"
-
-let kAscendants            = "ascendants"
-let kDescendants           = "descendants"
-
-let kIrreg1                = "irreg1"
-let kIrreg2                = "irreg2"
-let kExpenses              = "expenses"
-
-let kCompensatory          = "compensatory"
-let kCompensatoryAmount    = "compensatoryAmount"
-
-let kAnnuity               = "annuity"
-let kAnnuityAmount         = "annuityAmount"
-
-let kDwellingLoan          = "dwellingLoan"
-*/
 
 class PersonalData: NSObject {
     
@@ -165,165 +131,7 @@ class PersonalData: NSObject {
         
         super.init()
         
-        /*
-        if load {
-            if let dictionary = NSUserDefaults.standardUserDefaults().valueForKey(kPersonalData) as? NSMutableDictionary {
-                decodeData(dictionary)
-            }
-        }
- */
     }
-    
-    /*
-    func decodeData(dictionary: NSMutableDictionary) {
-        
-        if let value = dictionary.valueForKey(kEarnings) as? Double {
-            earnings = value
-        }
-        
-        if let value = dictionary.valueForKey(kBirthDate) as? NSDate {
-            birthDate = value
-        }
-        
-        
-        if let value = dictionary.valueForKey(kPayments) as? Payments.RawValue {
-            payments = Payments(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kFamilySituation) as? FamilySituation.RawValue {
-            familySituation = FamilySituation(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kProfessionalSituation) as? ProfessionalSituation.RawValue {
-            professionalSituation = ProfessionalSituation(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kProfessionalRelation) as? ProfessionalRelation.RawValue {
-            professionalRelation = ProfessionalRelation(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kContributionBasis) as? ContributionBasis.RawValue {
-            contributionBasis = ContributionBasis(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kContractType) as? ContractType.RawValue {
-            contractType = ContractType(rawValue: value)!
-        }
-        
-        if let value = dictionary.valueForKey(kDisability) as? Disability.RawValue {
-            disability = Disability(rawValue: value)!
-        }
-        
-        
-        
-        if let value = dictionary.valueForKey(kNeedsHelp) as? Bool {
-            needsHelp = value
-        }
-        
-        if let value = dictionary.valueForKey(kMobility) as? Bool {
-            mobility = value
-        }
-        
-        if let value = dictionary.valueForKey(kCeutaMelilla) as? Bool {
-            ceutaMelilla = value
-        }
-        
-        if let value = dictionary.valueForKey(kExtendedActivity) as? Bool {
-            extendedActivity = value
-        }
-        
-        
-        if let value = dictionary.valueForKey(kIrreg1) as? Double {
-            irreg1 = value
-        }
-        if let value = dictionary.valueForKey(kIrreg2) as? Double {
-            irreg2 = value
-        }
-        if let value = dictionary.valueForKey(kExpenses) as? Double {
-            expenses = value
-        }
-        if let value = dictionary.valueForKey(kCompensatory) as? Bool {
-            compensatory = value
-        }
-        if let value = dictionary.valueForKey(kCompensatoryAmount) as? Double {
-            compensatoryAmount = value
-        }
-        if let value = dictionary.valueForKey(kAnnuity) as? Bool {
-            annuity = value
-        }
-        if let value = dictionary.valueForKey(kAnnuityAmount) as? Double {
-            annuityAmount = value
-        }
-        if let value = dictionary.valueForKey(kDwellingLoan) as? Bool {
-            dwellingLoan = value
-        }
-        
-        
-        
-        if let value = dictionary.valueForKey(kAscendants) as? NSMutableArray {
-            for dict in value {
-                ascendants.append(Ascendant(dictionary:dict as! NSMutableDictionary))
-            }
-        }
-        
-        if let value = dictionary.valueForKey(kDescendants) as? NSMutableArray {
-            for dict in value {
-                descendants.append(Descendant(dictionary:dict as! NSMutableDictionary))
-            }
-        }
-        
-    }
-    
-    func saveData() {
-        
-        let dictionary = NSMutableDictionary()
-        
-        dictionary.setValue(earnings,  forKey: kEarnings)
-        dictionary.setValue(birthDate, forKey: kBirthDate)
-        
-        dictionary.setValue(payments.rawValue,              forKey: kPayments)
-        dictionary.setValue(familySituation.rawValue,       forKey: kFamilySituation)
-        dictionary.setValue(professionalSituation.rawValue, forKey: kProfessionalSituation)
-        dictionary.setValue(professionalRelation.rawValue,  forKey: kProfessionalRelation)
-        dictionary.setValue(contributionBasis.rawValue,     forKey: kContributionBasis)
-        dictionary.setValue(contractType.rawValue,          forKey: kContractType)
-        dictionary.setValue(disability.rawValue,            forKey: kDisability)
-        
-        dictionary.setValue(needsHelp,        forKey: kNeedsHelp)
-        dictionary.setValue(mobility,         forKey: kMobility)
-        dictionary.setValue(ceutaMelilla,     forKey: kCeutaMelilla)
-        dictionary.setValue(extendedActivity, forKey: kExtendedActivity)
-        
-        
-        dictionary.setValue(irreg1,             forKey: kIrreg1)
-        dictionary.setValue(irreg2,             forKey: kIrreg2)
-        dictionary.setValue(expenses,           forKey: kExpenses)
-        dictionary.setValue(compensatory,       forKey: kCompensatory)
-        dictionary.setValue(compensatoryAmount, forKey: kCompensatoryAmount)
-        dictionary.setValue(annuity,            forKey: kAnnuity)
-        dictionary.setValue(annuityAmount,      forKey: kAnnuityAmount)
-        dictionary.setValue(dwellingLoan,       forKey: kDwellingLoan)
-        
-        
-        // Relatives
-        let ascendantsArray = NSMutableArray()
-        for ascendant in ascendants {
-            ascendantsArray.addObject(ascendant.dictionaryFromRelative())
-        }
-        dictionary.setValue(ascendantsArray, forKey: kAscendants)
-        
-        
-        let descandantsArray = NSMutableArray()
-        for descendant in descendants {
-            descandantsArray.addObject(descendant.dictionaryFromRelative())
-        }
-        dictionary.setValue(descandantsArray, forKey: kDescendants)
-        
-        // Save the dictionary
-        NSUserDefaults.standardUserDefaults().setValue(dictionary, forKey: kPersonalData)
-        
-    }
- */
     
     // MARK: - Relatives handling
     
