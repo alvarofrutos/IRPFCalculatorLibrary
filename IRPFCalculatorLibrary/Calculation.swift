@@ -27,8 +27,6 @@ class Calculation: NSObject {
     
     var type : CalculationType
     
-    var detailed : Bool
-    
     
     var retribution      : Double      = 0.0
     var netReturn        : Double      = 0.0
@@ -119,13 +117,11 @@ class Calculation: NSObject {
     
     // MARK: - Methods
     
-    init(personalData: PersonalData, type calculationType: CalculationType, andDetailLevel detailLevel: Bool) {
+    init(personalData: PersonalData, type calculationType: CalculationType) {
         
         data = personalData
         
         type = calculationType
-        
-        detailed = detailLevel
         
         switch type {
         
@@ -609,19 +605,17 @@ class Calculation: NSObject {
             
             if data.extendedActivity {
                 reductions.append(Reduction(description: "reduction_extended", amount: general))
-            } else if detailed {
+            } else {
                 reductions.append(Reduction(description: "reduction_extended", amount: 0.00))
             }
             
             if data.mobility {
                 reductions.append(Reduction(description: "reduction_mobility", amount: general))
-            } else if detailed {
+            } else {
                 reductions.append(Reduction(description: "reduction_mobility", amount: 0.00))
             }
             
-            if disability >= 0.01 || detailed {
-                reductions.append(Reduction(description: "reduction_disability", amount: disability))
-            }
+            reductions.append(Reduction(description: "reduction_disability", amount: disability))
             
         default:
             
@@ -725,26 +719,26 @@ class Calculation: NSObject {
         if data.professionalSituation == .Pensioner {
             pension = 600.00
             reductions.append(Reduction(description: "other_reduction_pensioner", amount: pension))
-        } else if detailed {
+        } else {
             reductions.append(Reduction(description: "other_reduction_pensioner", amount: 0.00))
         }
         
         if data.descendants.count > 2 {
             reductions.append(Reduction(description: "other_reduction_descendants", amount: 600.00))
-        } else if detailed {
+        } else {
             reductions.append(Reduction(description: "other_reduction_descendants", amount: 0.00))
         }
         
         if data.professionalSituation == .Unemployed {
             unemployment = 1200.00
             reductions.append(Reduction(description: "other_reduction_unemployed", amount: 1200.00))
-        } else if detailed {
+        } else {
             reductions.append(Reduction(description: "other_reduction_unemployed", amount: unemployment))
         }
         
         if data.compensatory {
             reductions.append(Reduction(description: "other_reduction_compensatory", amount: data.compensatoryAmount))
-        } else if detailed {
+        } else {
             reductions.append(Reduction(description: "other_reduction_compensatory", amount: 0.00))
         }
         
@@ -780,18 +774,10 @@ class Calculation: NSObject {
         
         var array : [Minimum] = [Minimum]()
         
-        if let minimum = extended.combineMinimum(extended.generalString,     array: extended.general,     detailed: detailed) {
-            array.append(minimum)
-        }
-        if let minimum = extended.combineMinimum(extended.descendantsString, array: extended.descendants, detailed: detailed) {
-            array.append(minimum)
-        }
-        if let minimum = extended.combineMinimum(extended.ascendantsString,  array: extended.ascendants,  detailed: detailed) {
-            array.append(minimum)
-        }
-        if let minimum = extended.combineMinimum(extended.disabilityString,  array: extended.disability,  detailed: detailed) {
-            array.append(minimum)
-        }
+        array.append(extended.combineMinimum(extended.generalString,     array: extended.general))
+        array.append(extended.combineMinimum(extended.descendantsString, array: extended.descendants))
+        array.append(extended.combineMinimum(extended.ascendantsString,  array: extended.ascendants))
+        array.append(extended.combineMinimum(extended.disabilityString,  array: extended.disability))
         
         return array
     }
@@ -1064,14 +1050,14 @@ struct Minimums {
     let disabilityString  = "minimums_disability"
     
     
-    func combineMinimum(description: String, array: [Minimum], detailed: Bool) -> Minimum? {
+    func combineMinimum(description: String, array: [Minimum]) -> Minimum {
         
         var amount : Double = 0.0
         
         for minimum in array {
             amount += minimum.amount
         }
-        return !detailed && amount < 0.01 ? nil : Minimum(description: description, amount: amount)
+        return  Minimum(description: description, amount: amount)
     }
 }
 

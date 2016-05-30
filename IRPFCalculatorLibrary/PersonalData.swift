@@ -125,7 +125,7 @@ class PersonalData: NSObject {
     
     // MARK: - Methods
     
-    init(load: Bool) {
+    override init() {
         
         birthDate = initBirthDate()
         

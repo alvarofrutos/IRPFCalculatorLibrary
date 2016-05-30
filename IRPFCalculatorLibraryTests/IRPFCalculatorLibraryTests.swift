@@ -21,9 +21,27 @@ class IRPFCalculatorLibraryTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
+    func testCaseBasic1() {
+        // Functional test case 1.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let data : PersonalData = PersonalData()
+        
+        // Set personal data
+        data.earnings = 40000
+        
+        // Set calculation type
+        let type : CalculationType = .IRPF2016
+        
+        
+        // Calculate
+        let calculation = Calculation(personalData: data, type: type)
+        
+        calculation.calculate()
+        
+        // Check results
+        XCTAssertEqual(calculation.retentionValue, 8704, "Test Case Basic 1: Retention value")
+        XCTAssertEqual(calculation.retentionType, 21.76, "Test Case Basic 1: Retention type")
     }
     
     func testPerformanceExample() {
