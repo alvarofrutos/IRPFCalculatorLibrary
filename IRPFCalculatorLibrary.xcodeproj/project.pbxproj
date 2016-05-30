@@ -10,6 +10,11 @@
 		38A7A74C1CFCC524006C226B /* IRPFCalculatorLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A7A74B1CFCC524006C226B /* IRPFCalculatorLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38A7A7531CFCC524006C226B /* IRPFCalculatorLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A7A7481CFCC524006C226B /* IRPFCalculatorLibrary.framework */; };
 		38A7A7581CFCC524006C226B /* IRPFCalculatorLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A7571CFCC524006C226B /* IRPFCalculatorLibraryTests.swift */; };
+		38A7A7661CFCC553006C226B /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A7641CFCC553006C226B /* Calculation.swift */; };
+		38A7A7671CFCC553006C226B /* Salary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A7651CFCC553006C226B /* Salary.swift */; };
+		38A7A76A1CFCC55D006C226B /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A7681CFCC55D006C226B /* PersonalData.swift */; };
+		38A7A76B1CFCC55D006C226B /* Relative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A7691CFCC55D006C226B /* Relative.swift */; };
+		38A7A76D1CFCC56D006C226B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A76C1CFCC56D006C226B /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		38A7A7521CFCC524006C226B /* IRPFCalculatorLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRPFCalculatorLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A7A7571CFCC524006C226B /* IRPFCalculatorLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRPFCalculatorLibraryTests.swift; sourceTree = "<group>"; };
 		38A7A7591CFCC524006C226B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38A7A7641CFCC553006C226B /* Calculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		38A7A7651CFCC553006C226B /* Salary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Salary.swift; sourceTree = "<group>"; };
+		38A7A7681CFCC55D006C226B /* PersonalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
+		38A7A7691CFCC55D006C226B /* Relative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relative.swift; sourceTree = "<group>"; };
+		38A7A76C1CFCC56D006C226B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +81,10 @@
 		38A7A74A1CFCC524006C226B /* IRPFCalculatorLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				38A7A74B1CFCC524006C226B /* IRPFCalculatorLibrary.h */,
+				38A7A76F1CFCC59A006C226B /* Main */,
+				38A7A7631CFCC53D006C226B /* Data */,
+				38A7A7621CFCC537006C226B /* Calculation */,
+				38A7A76E1CFCC592006C226B /* Others */,
 				38A7A74D1CFCC524006C226B /* Info.plist */,
 			);
 			path = IRPFCalculatorLibrary;
@@ -84,6 +97,40 @@
 				38A7A7591CFCC524006C226B /* Info.plist */,
 			);
 			path = IRPFCalculatorLibraryTests;
+			sourceTree = "<group>";
+		};
+		38A7A7621CFCC537006C226B /* Calculation */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A7641CFCC553006C226B /* Calculation.swift */,
+				38A7A7651CFCC553006C226B /* Salary.swift */,
+			);
+			name = Calculation;
+			sourceTree = "<group>";
+		};
+		38A7A7631CFCC53D006C226B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A7681CFCC55D006C226B /* PersonalData.swift */,
+				38A7A7691CFCC55D006C226B /* Relative.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		38A7A76E1CFCC592006C226B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A76C1CFCC56D006C226B /* Utilities.swift */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		38A7A76F1CFCC59A006C226B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A74B1CFCC524006C226B /* IRPFCalculatorLibrary.h */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A7A7661CFCC553006C226B /* Calculation.swift in Sources */,
+				38A7A76B1CFCC55D006C226B /* Relative.swift in Sources */,
+				38A7A7671CFCC553006C226B /* Salary.swift in Sources */,
+				38A7A76D1CFCC56D006C226B /* Utilities.swift in Sources */,
+				38A7A76A1CFCC55D006C226B /* PersonalData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +362,7 @@
 		38A7A75D1CFCC524006C226B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +373,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alvarofrutos.IRPFCalculatorLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		38A7A75E1CFCC524006C226B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
